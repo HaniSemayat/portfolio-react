@@ -1,7 +1,9 @@
 function App() {
   return (
-    <main>
-      <h1>Portfolio</h1>
+    <main className="app">
+      <div className="page-container">
+        <h1>Portfolio</h1>
+      </div>
     </main>
   )
 }

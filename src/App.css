@@ -1,0 +1,8 @@
+.app {
+  min-height: 100vh;
+}
+
+.page-container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
