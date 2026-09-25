@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar'
+import Hero from './sections/Hero/Hero'
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
       <Navbar />
 
       <div className="page-container">
-        <h1>Portfolio</h1>
+        <Hero />
       </div>
     </main>
   )
