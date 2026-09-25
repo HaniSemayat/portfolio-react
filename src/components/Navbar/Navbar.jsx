@@ -6,7 +6,7 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar-container">
         <a href="#" className="navbar-logo">
-          ADDIS.T
+          Hani T.
         </a>
 
         <div className="navbar-actions">
