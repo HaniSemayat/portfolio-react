@@ -40,9 +40,19 @@
   color: var(--text);
 }
 
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 @media (max-width: 700px) {
   .navbar-container {
     min-height: 64px;
+  }
+
+  .navbar-actions {
+    gap: 12px;
   }
 
   .navbar-links {
