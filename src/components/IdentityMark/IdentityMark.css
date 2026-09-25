@@ -1,0 +1,85 @@
+.identity-mark {
+  position: relative;
+
+  width: 180px;
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  transform: rotate(-8deg);
+
+  animation: identity-float 6s ease-in-out infinite;
+}
+
+.identity-mark-ring {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border: 1px solid var(--muted-text);
+  border-radius: 50%;
+
+  opacity: 0.45;
+}
+
+.identity-mark-letter {
+  position: absolute;
+
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.identity-mark-a {
+  transform: translate(-18px, -8px);
+}
+
+.identity-mark-t {
+  transform: translate(18px, 8px);
+}
+
+.identity-mark::before,
+.identity-mark::after {
+  content: '';
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--text);
+  border-radius: 50%;
+}
+
+.identity-mark::before {
+  top: 18px;
+  right: 38px;
+}
+
+.identity-mark::after {
+  bottom: 22px;
+  left: 34px;
+}
+
+@keyframes identity-float {
+  0%,
+  100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-4deg) translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .identity-mark {
+    animation: none;
+  }
+}
