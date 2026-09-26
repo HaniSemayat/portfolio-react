@@ -1,0 +1,79 @@
+.education {
+  padding: 160px 0 120px;
+  border-top: 1px solid var(--border);
+}
+
+.education-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  color: var(--muted-text);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.education-intro h2 {
+  margin: 0 0 100px;
+  max-width: 900px;
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.education-list {
+  border-top: 1px solid var(--border);
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.education-period {
+  color: var(--muted-text);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.education-main h3 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.education-program {
+  margin: 16px 0 6px;
+  font-size: 1rem;
+}
+
+.education-detail {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .education {
+    padding: 100px 0 80px;
+  }
+
+  .education-heading {
+    margin-bottom: 50px;
+  }
+
+  .education-intro h2 {
+    margin-bottom: 60px;
+  }
+
+  .education-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 32px 0;
+  }
+}
