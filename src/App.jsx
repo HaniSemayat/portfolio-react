@@ -5,6 +5,7 @@ import Skills from './sections/Skills/Skills'
 import Projects from './sections/Projects/Projects'
 import Education from './sections/Education/Education'
 import Contact from './sections/Contact/Contact'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Education />
         <Contact />
       </div>
+
+      <Footer />
     </main>
   )
 }
