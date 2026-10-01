@@ -1,5 +1,6 @@
-import './Skills.css'
+﻿import './Skills.css'
 import skills from '../../data/skills'
+import SkillIcon from '../../components/SkillIcon/SkillIcon'
 
 function Skills() {
   return (
@@ -24,9 +25,13 @@ function Skills() {
 
             <div className="skill-items">
               {group.items.map((skill) => (
-                <span className="skill-item" key={skill}>
-                  {skill}
-                </span>
+                <div className="skill-item" key={skill.name}>
+                  <SkillIcon name={skill.icon} />
+
+                  <span className="skill-name">
+                    {skill.name}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
