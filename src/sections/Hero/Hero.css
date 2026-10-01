@@ -1,10 +1,11 @@
 .hero {
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 78px);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 32px 0 48px;
+  padding: 28px 0 48px;
 }
 
 .hero-topline {
@@ -12,8 +13,9 @@
   justify-content: space-between;
 
   color: var(--muted-text);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .hero-content {
@@ -21,69 +23,85 @@
 }
 
 .hero-intro {
-  margin: 0 0 12px;
+  margin: 0 0 18px;
 
   color: var(--muted-text);
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  letter-spacing: -0.01em;
 }
 
 .hero-title {
-  max-width: 1000px;
+  max-width: 1050px;
+
   margin: 0;
 
-  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-size: clamp(4rem, 9.5vw, 9.5rem);
   font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.06em;
+  line-height: 0.86;
+  letter-spacing: -0.07em;
 
-   animation: hero-text-in 700ms ease;
+  animation: hero-text-in 700ms ease;
 }
 
 .hero-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: 1fr auto;
 
-  margin-top: 64px;
+  align-items: end;
+
+  gap: 60px;
+
+  margin-top: 70px;
   padding-top: 24px;
 
   border-top: 1px solid var(--border);
 }
 
 .hero-description {
-  max-width: 420px;
+  max-width: 430px;
+
   margin: 0;
 
   color: var(--muted-text);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .hero-link {
   display: inline-flex;
   align-items: center;
+
   gap: 10px;
 
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding-bottom: 2px;
 
-  transition: gap 180ms ease;
+  border-bottom: 1px solid var(--border);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  transition:
+    gap 180ms ease,
+    border-color 180ms ease;
 }
 
 .hero-link:hover {
   gap: 16px;
+  border-color: var(--text);
 }
 
 .hero-identity {
   display: flex;
   justify-content: flex-end;
 
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 @keyframes hero-text-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
 
   to {
@@ -94,7 +112,7 @@
 
 @media (max-width: 700px) {
   .hero {
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - 68px);
     padding: 24px 0 32px;
   }
 
@@ -103,35 +121,48 @@
   }
 
   .hero-content {
-    padding: 60px 0 30px;
+    padding: 70px 0 30px;
+  }
+
+  .hero-intro {
+    margin-bottom: 16px;
   }
 
   .hero-title {
-    font-size: clamp(3.2rem, 15vw, 6rem);
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    line-height: 0.88;
   }
 
   .hero-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+
+    margin-top: 55px;
   }
+
+  .hero-link {
+    justify-self: start;
+  }
+
   .hero-identity {
-  justify-content: flex-start;
-}
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
 
-.identity-mark {
-  width: 120px;
-  height: 120px;
-}
+  .identity-mark {
+    width: 120px;
+    height: 120px;
+  }
 
-.identity-mark-ring {
-  width: 88px;
-  height: 88px;
-}
+  .identity-mark-ring {
+    width: 88px;
+    height: 88px;
+  }
 
-.identity-mark-letter {
-  font-size: 2rem;
-}
+  .identity-mark-letter {
+    font-size: 2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
