@@ -5,6 +5,11 @@
   font-size: 0.75rem;
 }
 
+.footer-container {
+  width: min(1120px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
 .footer-top {
   display: flex;
   align-items: center;
@@ -50,6 +55,10 @@
     padding-bottom: 24px;
   }
 
+  .footer-container {
+    width: calc(100% - 32px);
+  }
+
   .footer-top {
     padding-bottom: 30px;
   }
@@ -57,5 +66,15 @@
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-back-top span {
+    transition: none;
+  }
+
+  .footer-back-top:hover span {
+    transform: none;
   }
 }
