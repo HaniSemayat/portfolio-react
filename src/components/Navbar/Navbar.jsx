@@ -1,7 +1,7 @@
 import './Navbar.css'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
-function Navbar() {
+function Navbar({ isDark, setIsDark }) {
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -16,7 +16,10 @@ function Navbar() {
             <a href="#contact">Contact</a>
           </nav>
 
-          <ThemeToggle />
+          <ThemeToggle
+            isDark={isDark}
+            setIsDark={setIsDark}
+          />
         </div>
       </div>
     </header>

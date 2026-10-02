@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import './ProjectCard.css'
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, isDark  }) {
   const [visualIndex, setVisualIndex] = useState(0)
 
-  const isDark =
-    document.documentElement.dataset.theme === 'dark'
 
   const visuals =
     project.visuals[isDark ? 'dark' : 'light'] ||

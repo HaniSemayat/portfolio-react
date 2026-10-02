@@ -2,12 +2,12 @@ import './Projects.css'
 import projects from '../../data/projects'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 
-function Projects() {
+function Projects({ isDark }) {
   return (
     <section className="projects" id="work">
       <div className="projects-heading">
         <span>03</span>
-        <span>SELECTED WORK</span>
+        <span>SELECTED WORKS</span>
       </div>
 
       <div className="projects-intro">
@@ -27,6 +27,7 @@ function Projects() {
         {projects.map((project) => (
           <ProjectCard
             project={project}
+            isDark={isDark}
             key={project.number}
           />
         ))}

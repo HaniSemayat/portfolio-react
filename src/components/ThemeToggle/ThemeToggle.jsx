@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './ThemeToggle.css'
 
-function ThemeToggle() {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark'
-  })
-
+function ThemeToggle({ isDark, setIsDark }) {
   useEffect(() => {
     document.documentElement.setAttribute(
       'data-theme',
       isDark ? 'dark' : 'light'
     )
 
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+    localStorage.setItem(
+      'theme',
+      isDark ? 'dark' : 'light'
+    )
   }, [isDark])
 
   function toggleTheme() {
@@ -23,7 +22,11 @@ function ThemeToggle() {
     <button
       className="theme-toggle"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={
+        isDark
+          ? 'Switch to light mode'
+          : 'Switch to dark mode'
+      }
     >
       {isDark ? '☀' : '◐'}
     </button>

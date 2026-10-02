@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar/Navbar'
@@ -10,15 +11,24 @@ import Contact from './sections/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
 function App() {
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('theme') === 'dark'
+  })
+
   return (
     <main className="app">
-      <Navbar />
+      <Navbar
+        isDark={isDark}
+        setIsDark={setIsDark}
+      />
 
       <div className="page-container">
         <Hero />
         <About />
         <Skills />
-        <Projects />
+
+        <Projects isDark={isDark} />
+
         <Education />
         <Contact />
       </div>
