@@ -39,7 +39,7 @@ function Contact() {
           </a>
 
           <a
-            href="#"
+            href="http://linkedin.com/in/hani-t-semayat"
             className="contact-link"
           >
             <span>LinkedIn</span>
