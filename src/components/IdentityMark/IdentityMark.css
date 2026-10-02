@@ -8,13 +8,83 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   border-radius: 50%;
+
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    conic-gradient(
+      from 20deg,
+      rgba(91, 140, 255, 0.15),
+      rgba(198, 108, 255, 0.8),
+      rgba(255, 107, 145, 0.65),
+      rgba(91, 140, 255, 0.8),
+      rgba(198, 108, 255, 0.15)
+    ) border-box;
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.12),
+    0 10px 25px rgba(91, 140, 255, 0.06),
+    0 0 45px rgba(198, 108, 255, 0.06);
 
   transform: rotate(-8deg);
 
   animation: identity-float 6s ease-in-out infinite;
 }
+
+/* Atmospheric glow */
+
+.identity-mark::before {
+  content: '';
+
+  position: absolute;
+  z-index: -1;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(198, 108, 255, 0.18),
+      rgba(91, 140, 255, 0.08) 40%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  animation: identity-glow 5s ease-in-out infinite;
+}
+
+/* Diamond node */
+
+.identity-mark::after {
+  content: '';
+
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  top: 18px;
+  right: 35px;
+
+  border: 1px solid rgba(198, 108, 255, 0.8);
+
+  background: var(--background);
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 0 10px rgba(198, 108, 255, 0.35),
+    0 0 20px rgba(91, 140, 255, 0.12);
+
+  animation: identity-node 4s ease-in-out infinite;
+}
+
+/* Inner orbital ring */
 
 .identity-mark-ring {
   position: absolute;
@@ -22,64 +92,190 @@
   width: 130px;
   height: 130px;
 
-  border: 1px solid var(--muted-text);
+  border: 1px solid transparent;
   border-radius: 50%;
 
-  opacity: 0.45;
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(91, 140, 255, 0.15),
+      rgba(198, 108, 255, 0.65),
+      rgba(255, 107, 145, 0.35),
+      rgba(91, 140, 255, 0.1)
+    ) border-box;
+
+  opacity: 0.8;
+
+  transform: rotate(-18deg);
+
+  box-shadow:
+    inset 0 0 18px rgba(198, 108, 255, 0.04),
+    0 0 22px rgba(91, 140, 255, 0.04);
+
+  animation: identity-orbit 10s linear infinite;
 }
+
+/* Small diamond orbit markers */
+
+.identity-mark-ring::before,
+.identity-mark-ring::after {
+  content: '';
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border: 1px solid var(--text);
+
+  background: var(--background);
+
+  transform: rotate(45deg);
+}
+
+/* Upper-left diamond */
+
+.identity-mark-ring::before {
+  top: 8px;
+  left: 16px;
+
+  opacity: 0.65;
+
+  box-shadow:
+    0 0 10px rgba(91, 140, 255, 0.25);
+}
+
+/* Lower-right diamond */
+
+.identity-mark-ring::after {
+  right: 12px;
+  bottom: 14px;
+
+  opacity: 0.4;
+
+  box-shadow:
+    0 0 10px rgba(255, 107, 145, 0.2);
+}
+
+/* Letters */
 
 .identity-mark-letter {
   position: absolute;
+  z-index: 2;
 
   font-size: 3rem;
   font-weight: 500;
   line-height: 1;
+
+  color: var(--text);
+
+  text-shadow:
+    0 2px 0 color-mix(in srgb, var(--text) 15%, transparent),
+    0 7px 16px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 400ms ease,
+    text-shadow 400ms ease;
 }
+
+/* A */
 
 .identity-mark-a {
   transform: translate(-18px, -8px);
 }
 
+/* T */
+
 .identity-mark-t {
   transform: translate(18px, 8px);
 }
 
-.identity-mark::before,
-.identity-mark::after {
-  content: '';
+/* Subtle interaction */
 
-  position: absolute;
-
-  width: 5px;
-  height: 5px;
-
-  background: var(--text);
-  border-radius: 50%;
+.identity-mark:hover .identity-mark-a {
+  transform: translate(-21px, -11px);
 }
 
-.identity-mark::before {
-  top: 18px;
-  right: 38px;
+.identity-mark:hover .identity-mark-t {
+  transform: translate(21px, 11px);
 }
 
-.identity-mark::after {
-  bottom: 22px;
-  left: 34px;
+.identity-mark:hover {
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.14),
+    0 12px 30px rgba(91, 140, 255, 0.08),
+    0 0 55px rgba(198, 108, 255, 0.09);
 }
+
+/* Floating depth */
 
 @keyframes identity-float {
   0%,
   100% {
-    transform: rotate(-8deg) translateY(0);
+    transform: rotate(-8deg) translate3d(0, 0, 0);
   }
 
   50% {
-    transform: rotate(-4deg) translateY(-8px);
+    transform: rotate(-4deg) translate3d(0, -8px, 0);
   }
 }
 
+/* Ring rotation */
+
+@keyframes identity-orbit {
+  from {
+    transform: rotate(-18deg);
+  }
+
+  to {
+    transform: rotate(342deg);
+  }
+}
+
+/* Glow breathing */
+
+@keyframes identity-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Diamond pulse */
+
+@keyframes identity-node {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(135deg) scale(1.25);
+  }
+}
+
+/* Reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
-  .identity-mark {
+  .identity-mark,
+  .identity-mark-ring,
+  .identity-mark::before,
+  .identity-mark::after {
     animation: none;
+  }
+
+  .identity-mark:hover .identity-mark-a {
+    transform: translate(-18px, -8px);
+  }
+
+  .identity-mark:hover .identity-mark-t {
+    transform: translate(18px, 8px);
   }
 }
