@@ -45,7 +45,7 @@ function Navbar({ isDark, setIsDark }) {
             rel="noreferrer"
             className="navbar-cv"
           >
-            CV <span>↗</span>
+            My CV <span>↗</span>
           </a>
 
           <ThemeToggle
