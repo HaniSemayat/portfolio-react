@@ -9,7 +9,7 @@
 }
 
 .navbar-container {
-  width: min(1120px, calc(100% - 96px));
+  width: min(1240px, calc(100% - 64px));
   min-height: 78px;
   margin: 0 auto;
 
@@ -27,14 +27,19 @@
 
 .navbar-logo-mark {
   position: relative;
+
   display: grid;
   place-items: center;
+
   width: 24px;
   height: 24px;
+
   color: var(--text);
   font-size: 1rem;
   line-height: 1;
+
   transform: rotate(45deg);
+
   transition:
     transform 300ms ease,
     color 200ms ease;
@@ -42,10 +47,14 @@
 
 .navbar-logo-mark::before {
   content: '';
+
   position: absolute;
   inset: 3px;
+
   border: 1px solid var(--border);
+
   transform: rotate(45deg);
+
   transition:
     border-color 200ms ease,
     transform 300ms ease;
@@ -53,6 +62,7 @@
 
 .navbar-logo-text {
   position: relative;
+
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -60,12 +70,16 @@
 
 .navbar-logo-text::after {
   content: '';
+
   position: absolute;
   left: 0;
   bottom: -6px;
+
   width: 16px;
   height: 1px;
+
   background: var(--text);
+
   transition: width 200ms ease;
 }
 
@@ -127,14 +141,20 @@
   width: 100%;
 }
 
+/* CV */
+
 .navbar-cv {
   position: relative;
+
   display: inline-flex;
   align-items: center;
   gap: 7px;
+
   padding: 8px 13px;
+
   border: 1px solid transparent;
   border-radius: 999px;
+
   background:
     linear-gradient(var(--background), var(--background)) padding-box,
     linear-gradient(
@@ -144,13 +164,17 @@
       rgba(255, 107, 145, 0.7),
       rgba(91, 140, 255, 0.8)
     ) border-box;
+
   color: var(--text);
+
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+
   box-shadow:
     0 6px 20px rgba(91, 140, 255, 0.05),
     0 4px 16px rgba(198, 108, 255, 0.04);
+
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
@@ -162,6 +186,7 @@
 
 .navbar-cv:hover {
   transform: translateY(-2px);
+
   box-shadow:
     0 10px 28px rgba(91, 140, 255, 0.1),
     0 8px 24px rgba(198, 108, 255, 0.08),
@@ -174,6 +199,7 @@
 
 .navbar-cv:focus-visible {
   outline: none;
+
   box-shadow:
     0 0 0 3px color-mix(in srgb, var(--background) 80%, transparent),
     0 0 0 4px rgba(198, 108, 255, 0.65);
@@ -186,15 +212,15 @@
   }
 
   .navbar-actions {
-    gap: 16px;
+    gap: 12px;
   }
 
   .navbar-links {
-    gap: 16px;
+    gap: 14px;
   }
 
   .navbar-links a {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 
   .navbar-logo-text {
@@ -208,7 +234,33 @@
   }
 
   .navbar-cv {
-    padding: 3px 8px;
+    padding: 7px 10px;
     font-size: 0.68rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-logo-mark,
+  .navbar-logo-mark::before,
+  .navbar-logo-text::after,
+  .navbar-cv,
+  .navbar-cv span {
+    transition: none;
+  }
+
+  .navbar-logo:hover .navbar-logo-mark {
+    transform: rotate(45deg);
+  }
+
+  .navbar-logo:hover .navbar-logo-mark::before {
+    transform: rotate(45deg);
+  }
+
+  .navbar-cv:hover {
+    transform: none;
+  }
+
+  .navbar-cv:hover span {
+    transform: none;
   }
 }

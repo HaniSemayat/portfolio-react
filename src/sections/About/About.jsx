@@ -14,7 +14,7 @@ function About() {
             <div className="about-avatar-glow" />
 
             <img
-              src="/images/about/avatar.png"
+              src="/images/about/avatar2.png"
               alt="Illustrated developer avatar"
             />
 

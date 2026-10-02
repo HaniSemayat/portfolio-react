@@ -3,7 +3,7 @@
 }
 
 .page-container {
-  width: min(1120px, calc(100% - 96px));
+  width: min(1240px, calc(100% - 64px));
   margin: 0 auto;
 }
 

@@ -107,7 +107,7 @@ const projects = [
     visuals: {
       light: [
         {
-          src: '/images/projects/birr-watch.jpg',
+          src: '/images/projects/birr-watch.png',
           alt: 'Birr Watch currency monitoring interface',
         },
       ],
