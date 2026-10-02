@@ -1,0 +1,104 @@
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+
+  padding: 4px 0;
+}
+
+.section-divider-line {
+  flex: 1;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(91, 140, 255, 0.55),
+    rgba(198, 108, 255, 0.65),
+    rgba(255, 107, 145, 0.45),
+    transparent
+  );
+}
+
+.section-divider-diamond {
+  position: relative;
+
+  width: 11px;
+  height: 11px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid transparent;
+
+  background:
+    linear-gradient(
+      var(--background),
+      var(--background)
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(91, 140, 255, 0.9),
+      rgba(198, 108, 255, 0.9),
+      rgba(255, 107, 145, 0.75)
+    ) border-box;
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 0 10px rgba(91, 140, 255, 0.12),
+    0 0 16px rgba(198, 108, 255, 0.1);
+
+  animation: divider-diamond 7s linear infinite;
+}
+
+.section-divider-diamond span {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: var(--text);
+
+  opacity: 0.7;
+
+  box-shadow:
+    0 0 6px rgba(198, 108, 255, 0.4);
+}
+
+@keyframes divider-diamond {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .section-divider {
+    gap: 12px;
+  }
+
+  .section-divider-diamond {
+    width: 9px;
+    height: 9px;
+  }
+
+  .section-divider-diamond span {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-divider-diamond {
+    animation: none;
+  }
+}
