@@ -19,9 +19,18 @@ function Education() {
 
       <div className="education-list">
         {education.map((item) => (
-          <article className="education-item" key={item.institution}>
-            <div className="education-period">
-              {item.period}
+          <article className="education-card" key={item.institution}>
+            <div className="education-card-top">
+              <span className="education-period">
+                {item.period}
+              </span>
+
+              <div className="education-logo">
+                <img
+                  src={item.logo}
+                  alt={item.institution}
+                />
+              </div>
             </div>
 
             <div className="education-main">
@@ -35,6 +44,8 @@ function Education() {
                 {item.detail}
               </p>
             </div>
+
+            <span className="education-arrow">↗</span>
           </article>
         ))}
       </div>
