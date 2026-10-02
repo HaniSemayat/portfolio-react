@@ -1,5 +1,6 @@
 import './Projects.css'
 import projects from '../../data/projects'
+import ProjectCard from '../../components/ProjectCard/ProjectCard'
 
 function Projects() {
   return (
@@ -24,43 +25,10 @@ function Projects() {
 
       <div className="projects-list">
         {projects.map((project) => (
-          <article
-            className={`project ${project.featured ? 'project-featured' : ''}`}
+          <ProjectCard
+            project={project}
             key={project.number}
-          >
-            <div className="project-number">
-              {project.number}
-            </div>
-
-            <div className="project-main">
-              <div className="project-top">
-                <div>
-                  <span className="project-type">{project.type}</span>
-
-                  <h3>{project.title}</h3>
-                </div>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-link"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-
-              <p className="project-description">
-                {project.description}
-              </p>
-
-              <div className="project-technologies">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>{technology}</span>
-                ))}
-              </div>
-            </div>
-          </article>
+          />
         ))}
       </div>
     </section>
