@@ -6,7 +6,11 @@ function Navbar({ isDark, setIsDark }) {
     <header className="navbar">
       <div className="navbar-container">
         <a href="#" className="navbar-logo">
-          Hani T.
+          <span className="navbar-logo-mark">◇</span>
+
+          <span className="navbar-logo-text">
+            Hani T.
+          </span>
         </a>
 
         <div className="navbar-actions">

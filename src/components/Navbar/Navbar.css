@@ -19,29 +19,66 @@
 }
 
 .navbar-logo {
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
 
+.navbar-logo-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  transform: rotate(45deg);
+  transition:
+    transform 300ms ease,
+    color 200ms ease;
+}
+
+.navbar-logo-mark::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
+  transition:
+    border-color 200ms ease,
+    transform 300ms ease;
+}
+
+.navbar-logo-text {
+  position: relative;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
 }
 
-.navbar-logo::after {
+.navbar-logo-text::after {
   content: '';
-
   position: absolute;
   left: 0;
   bottom: -6px;
-
   width: 16px;
   height: 1px;
-
   background: var(--text);
-
   transition: width 200ms ease;
 }
 
-.navbar-logo:hover::after {
+.navbar-logo:hover .navbar-logo-mark {
+  transform: rotate(90deg);
+}
+
+.navbar-logo:hover .navbar-logo-mark::before {
+  border-color: var(--text);
+  transform: rotate(90deg);
+}
+
+.navbar-logo:hover .navbar-logo-text::after {
   width: 100%;
 }
 
@@ -108,7 +145,13 @@
     font-size: 0.72rem;
   }
 
-  .navbar-logo {
+  .navbar-logo-text {
     font-size: 0.78rem;
+  }
+
+  .navbar-logo-mark {
+    width: 21px;
+    height: 21px;
+    font-size: 0.9rem;
   }
 }
