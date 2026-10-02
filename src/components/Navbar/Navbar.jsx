@@ -20,6 +20,15 @@ function Navbar({ isDark, setIsDark }) {
             <a href="#contact">Contact</a>
           </nav>
 
+          <a
+            href="/Hani-Tsehaye-cv.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="navbar-cv"
+          >
+            My CV <span>↗</span>
+          </a>
+
           <ThemeToggle
             isDark={isDark}
             setIsDark={setIsDark}
