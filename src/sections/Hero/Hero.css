@@ -1,5 +1,5 @@
 .hero {
-  min-height: calc(100vh - 78px);
+  min-height: auto;
   display: flex;
   flex-direction: column;
   padding: 28px 0 48px;
