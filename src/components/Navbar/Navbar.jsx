@@ -1,16 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
 function Navbar({ isDark, setIsDark }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const navbarRef = useRef(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const handlePointerDown = (event) => {
+      if (!navbarRef.current?.contains(event.target)) {
+        setMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+    }
+  }, [menuOpen])
+
   const closeMenu = () => {
     setMenuOpen(false)
   }
 
   return (
-    <header className="navbar">
+    <header className="navbar" ref={navbarRef}>
       <div className="navbar-container">
         <a
           href="#"
