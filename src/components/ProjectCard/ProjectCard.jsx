@@ -10,8 +10,6 @@ function ProjectCard({ project, isDark  }) {
     project.visuals.light
 
   useEffect(() => {
-    setVisualIndex(0)
-
     if (visuals.length <= 1) return
 
     const interval = setInterval(() => {
@@ -21,7 +19,7 @@ function ProjectCard({ project, isDark  }) {
     }, 3500)
 
     return () => clearInterval(interval)
-  }, [isDark, visuals.length])
+  }, [visuals.length])
 
   const visual = visuals[visualIndex]
 
@@ -76,15 +74,10 @@ function ProjectCard({ project, isDark  }) {
             </div>
 
             <a
-              href={project.live || '#'}
-              className={`project-view ${
-                !project.live ? 'project-view-disabled' : ''
-              }`}
-              onClick={(event) => {
-                if (!project.live) {
-                  event.preventDefault()
-                }
-              }}
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="project-view"
             >
               View Project
               <span>↗</span>
