@@ -2,7 +2,7 @@ import './IdentityMark.css'
 
 function IdentityMark() {
   return (
-    <div className="identity-mark" aria-label="Addis Tesfa identity mark">
+    <div className="identity-mark" aria-label="Hani Tsehaye identity mark">
       <span className="identity-mark-ring"></span>
 
       <span className="identity-mark-letter identity-mark-a">
